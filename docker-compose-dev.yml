@@ -1,0 +1,28 @@
+# below command for hot deploy the web app 
+# will be replaced by this yml 
+#docker run -p 3000:3000 -v /app/node_modules -v $(pwd):/app container_id 
+version: '3'
+services:
+  web:
+    #build: . # by default will use Dockerfile
+    # buy in our case we have Dockerfile.dev
+    # so use below - add context and file name
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    ports:
+      - "3000:3000"
+      # we use volumes to point the docker container 
+      # filesyste to 
+      # local file system. This helps hot deploy
+    volumes:
+      - /app/node_modules
+      - .:/app
+  tests:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    volumes:
+      - /app/node_modules
+      - .:/app
+    command: ["npm","run","test"]

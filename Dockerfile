@@ -1,3 +1,4 @@
+# build phase
 from node:16-alpine as builder
 workdir '/app'
 copy package.json .

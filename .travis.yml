@@ -23,6 +23,6 @@ deploy:
   bucket-name: "elasticbeanstalk-us-east-1-865631364916"
   bucket-path: "docker-react" # same as app name - folder that is created in S3 to hoold the zip file
   on:
-    branch: master
+    branch: main
   access_key_id: "$AWS_ACCESS_KEY"
   secret_access_key: "$AWS_SECRET_KEY"

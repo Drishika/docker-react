@@ -8,7 +8,8 @@ run npm run build
 
 
 # run phase
-
+#expose port 8080 at nginx
 from nginx
+expose 80 
 copy --from=builder /app/build /usr/share/nginx/html
 
